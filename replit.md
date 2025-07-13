@@ -4,6 +4,14 @@
 
 This is a premium portfolio website for Saurav S, a full-stack software engineer based in Calicut, Kerala. The application is built as a modern single-page application using React.js with a Node.js/Express backend, featuring smooth animations, dark/light theme support, and a contact form with database persistence.
 
+## Recent Changes (January 2025)
+
+✓ **Fixed scroll indicator positioning** - Moved scroll arrow below CTA buttons with proper spacing and responsive design
+✓ **Implemented animated theme toggle** - Added smooth morphing sun/moon icons with particle effects and background transitions  
+✓ **Added comprehensive documentation** - Complete code comments explaining all animations, components, and functionality
+✓ **Enhanced responsive design** - Improved mobile layout for scroll indicator and theme toggle
+✓ **Updated API error handling** - Added proper storage interface for contact form submissions
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

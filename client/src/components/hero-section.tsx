@@ -154,7 +154,7 @@ export function HeroSection() {
           initial={{ x: 30, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 sm:mb-20"
         >
           <button
             onClick={() => scrollToSection("#projects")}
@@ -172,19 +172,24 @@ export function HeroSection() {
           </button>
         </motion.div>
 
-        {/* Scroll Indicator - positioned to avoid overlap with CTA buttons */}
+        {/* Scroll Indicator - centered below CTA buttons with proper spacing */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="flex justify-center"
         >
-          <button
+          <motion.button
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             onClick={() => scrollToSection("#about")}
-            className="flex flex-col items-center text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 group"
+            className="flex flex-col items-center text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 group p-4 rounded-lg hover:bg-white/10 dark:hover:bg-slate-800/30"
           >
-            <span className="text-sm mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Scroll to explore</span>
-            <i className="fas fa-chevron-down text-xl"></i>
-          </button>
+            <span className="text-xs sm:text-sm mb-2 opacity-70 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+              Scroll to explore
+            </span>
+            <i className="fas fa-chevron-down text-lg sm:text-xl"></i>
+          </motion.button>
         </motion.div>
       </div>
     </section>
