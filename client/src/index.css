@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(240, 10%, 3.9%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(240, 10%, 3.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(240, 10%, 3.9%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(224, 71%, 4%);
+  --primary-foreground: hsl(210, 20%, 98%);
+  --secondary: hsl(220, 14%, 96%);
+  --secondary-foreground: hsl(220, 9%, 46%);
+  --accent: hsl(220, 14%, 96%);
+  --accent-foreground: hsl(220, 9%, 46%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 20%, 98%);
+  --ring: hsl(224, 71%, 4%);
+  --radius: 0.5rem;
+  
+  /* Portfolio specific colors */
+  --indigo-50: hsl(225, 100%, 97%);
+  --indigo-100: hsl(226, 100%, 94%);
+  --indigo-500: hsl(231, 48%, 48%);
+  --indigo-600: hsl(232, 51%, 63%);
+  --violet-50: hsl(270, 100%, 98%);
+  --violet-100: hsl(269, 100%, 95%);
+  --violet-500: hsl(258, 90%, 66%);
+  --violet-600: hsl(262, 83%, 58%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(0, 0%, 98%);
+  --primary-foreground: hsl(240, 5.9%, 10%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  
+  /* Portfolio specific dark colors */
+  --indigo-50: hsl(225, 100%, 5%);
+  --indigo-100: hsl(226, 100%, 8%);
+  --indigo-500: hsl(231, 48%, 48%);
+  --indigo-600: hsl(232, 51%, 63%);
+  --violet-50: hsl(270, 100%, 5%);
+  --violet-100: hsl(269, 100%, 8%);
+  --violet-500: hsl(258, 90%, 66%);
+  --violet-600: hsl(262, 83%, 58%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-typing {
+    animation: typing 1s ease-in-out infinite;
+  }
+  
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-slideInRight {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+  }
+}
+
+@keyframes typing {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glassmorphism {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: white;
+  border-radius: 10px;
+}
+
+.dark .gradient-border::before {
+  background: hsl(240, 10%, 3.9%);
+}
