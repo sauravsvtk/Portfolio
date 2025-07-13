@@ -1,6 +1,20 @@
 import { motion } from "framer-motion";
 
+/**
+ * Skills Section Component
+ * 
+ * Features:
+ * - Technical skills with animated progress bars
+ * - 3D card effects with hover interactions
+ * - Soft skills displayed in elegant cards
+ * - Gradient backgrounds and icon animations
+ * - Staggered entrance animations for visual appeal
+ * 
+ * Skills are organized into technical and soft skill categories
+ * Each skill has custom styling and animation timing
+ */
 export function SkillsSection() {
+  // Technical skills with proficiency levels and custom gradients
   const technicalSkills = [
     { name: "React.js", icon: "fab fa-react", level: 90, gradient: "from-indigo-500 to-violet-500" },
     { name: "React Native", icon: "fab fa-react", level: 85, gradient: "from-blue-500 to-cyan-500" },
@@ -12,6 +26,7 @@ export function SkillsSection() {
     { name: "Prisma", icon: "fas fa-cogs", level: 72, gradient: "from-teal-500 to-cyan-500" },
   ];
 
+  // Soft skills with descriptions and matching gradients
   const softSkills = [
     { name: "Quick Learner", icon: "fas fa-bolt", description: "Rapidly adapts to new technologies", gradient: "from-indigo-500 to-violet-500" },
     { name: "Problem Solving", icon: "fas fa-puzzle-piece", description: "Creative solution development", gradient: "from-emerald-500 to-green-500" },

@@ -1,11 +1,26 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+/**
+ * Hero Section Component
+ * 
+ * Main landing section featuring:
+ * - Animated typing effect with rotating phrases
+ * - Floating background elements with motion
+ * - Professional avatar with glow effect
+ * - Call-to-action buttons with hover animations
+ * - Interactive scroll indicator
+ * 
+ * Uses Framer Motion for all animations and transitions
+ * Implements a custom typing effect with phrase rotation
+ */
 export function HeroSection() {
+  // Typing animation state management
   const [currentPhrase, setCurrentPhrase] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Phrases to cycle through in the typing animation
   const phrases = [
     "Engineering Simplicity. Delivering Impact.",
     "Full-Stack Developer",
@@ -13,26 +28,37 @@ export function HeroSection() {
     "Building Amazing Experiences"
   ];
 
+  /**
+   * Typing animation effect that cycles through phrases
+   * Creates a realistic typing/deleting animation with variable speeds
+   */
   useEffect(() => {
     const phrase = phrases[phraseIndex];
     const timeout = setTimeout(() => {
       if (isDeleting) {
+        // Deleting characters - faster speed
         setCurrentPhrase(phrase.substring(0, currentPhrase.length - 1));
         if (currentPhrase === "") {
           setIsDeleting(false);
           setPhraseIndex((prev) => (prev + 1) % phrases.length);
         }
       } else {
+        // Typing characters - slower speed for realism
         setCurrentPhrase(phrase.substring(0, currentPhrase.length + 1));
         if (currentPhrase === phrase) {
+          // Pause before starting to delete
           setTimeout(() => setIsDeleting(true), 2000);
         }
       }
-    }, isDeleting ? 50 : 100);
+    }, isDeleting ? 50 : 100); // Faster deletion, slower typing
 
     return () => clearTimeout(timeout);
   }, [currentPhrase, phraseIndex, isDeleting, phrases]);
 
+  /**
+   * Smooth scroll navigation to any page section
+   * @param href - The section ID to scroll to (e.g., "#about")
+   */
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -146,13 +172,19 @@ export function HeroSection() {
           </button>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - positioned to avoid overlap with CTA buttons */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10"
         >
-          <i className="fas fa-chevron-down text-slate-400 text-xl"></i>
+          <button
+            onClick={() => scrollToSection("#about")}
+            className="flex flex-col items-center text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 group"
+          >
+            <span className="text-sm mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Scroll to explore</span>
+            <i className="fas fa-chevron-down text-xl"></i>
+          </button>
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,17 @@
 import { motion } from "framer-motion";
 
+/**
+ * About Section Component
+ * 
+ * Features:
+ * - Personal introduction and professional summary
+ * - Contact information cards with hover effects
+ * - Social media links with animated interactions
+ * - Responsive grid layout with image and content
+ * - Smooth scroll-triggered animations
+ * 
+ * All animations are powered by Framer Motion with viewport-based triggers
+ */
 export function AboutSection() {
   return (
     <section id="about" className="py-20 bg-white dark:bg-slate-800">

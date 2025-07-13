@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
+// Contact form validation schema
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -19,10 +20,26 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+/**
+ * Contact Section Component
+ * 
+ * Features:
+ * - Professional contact form with validation
+ * - Contact information cards with social links
+ * - Resume download functionality
+ * - Real-time form validation using Zod
+ * - API integration for form submissions
+ * - Toast notifications for user feedback
+ * - Responsive two-column layout
+ * 
+ * Form handling uses react-hook-form with zodResolver for validation
+ * API calls managed by TanStack Query for error handling and loading states
+ */
 export function ContactSection() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Form setup with validation resolver
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -32,6 +49,7 @@ export function ContactSection() {
     },
   });
 
+  // Contact form submission mutation with error handling
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
       return apiRequest("POST", "/api/contact", data);
@@ -54,11 +72,19 @@ export function ContactSection() {
     },
   });
 
+  /**
+   * Handles form submission with loading state management
+   * @param data - Validated form data from react-hook-form
+   */
   const onSubmit = (data: ContactFormData) => {
     setIsSubmitting(true);
     contactMutation.mutate(data);
   };
 
+  /**
+   * Triggers resume download (placeholder implementation)
+   * In production, this would link to an actual PDF file
+   */
   const downloadResume = () => {
     // Create a placeholder PDF download
     const link = document.createElement("a");

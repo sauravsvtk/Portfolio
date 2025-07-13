@@ -1,11 +1,23 @@
 import { useState } from "react";
-import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import { AnimatedThemeToggle } from "@/components/ui/animated-theme-toggle";
 
+/**
+ * Navigation Bar Component
+ * 
+ * Features:
+ * - Fixed position navigation with backdrop blur effect
+ * - Responsive design with mobile hamburger menu
+ * - Smooth scroll navigation to page sections
+ * - Animated theme toggle button
+ * - Gradient brand text with hover effects
+ * 
+ * The navbar uses Framer Motion for entrance animations and smooth transitions
+ */
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
 
+  // Navigation menu items configuration
   const navItems = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
@@ -15,6 +27,10 @@ export function Navbar() {
     { href: "#contact", label: "Contact" },
   ];
 
+  /**
+   * Smoothly scrolls to a specific section and closes mobile menu
+   * @param href - The section ID to scroll to (e.g., "#about")
+   */
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -49,13 +65,8 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center space-x-4">
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-            >
-              <i className={`fas ${theme === "dark" ? "fa-sun" : "fa-moon"}`}></i>
-            </button>
+            {/* Animated Theme Toggle */}
+            <AnimatedThemeToggle />
 
             {/* Mobile Menu Button */}
             <button
