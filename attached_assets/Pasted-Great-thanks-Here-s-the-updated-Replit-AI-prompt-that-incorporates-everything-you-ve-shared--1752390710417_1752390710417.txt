@@ -1,0 +1,86 @@
+Great — thanks! Here's the **updated Replit AI prompt** that incorporates everything you've shared:
+
+---
+
+### ✅ Replit AI Prompt – Premium Portfolio Website for Saurav S
+
+> Build a **fully responsive, premium portfolio website** for a software engineer named **Saurav S**, using modern design and animations.
+>
+> ### 📦 Tech Stack & Libraries:
+>
+> * **React.js** (main framework)
+> * **Tailwind CSS** for elegant, utility-first styling
+> * **Framer Motion** for smooth animations and transitions
+> * **reactbits** or **three.js** for elegant 3D background effects (animated particles, floating icons, etc.)
+> * **react-toggle-dark-mode** or similar for theme switching
+> * **React Icons** for GitHub, LinkedIn, email, etc.
+>
+> ### 🌐 Pages & Layout:
+>
+> * **Home (Landing Page)**:
+>
+>   * Hero section with large name (`Saurav S`), a **tagline**:
+>
+>     > *“Engineering Simplicity. Delivering Impact.”*
+>   * Animated typing effect or scroll-reveal intro text.
+>   * Include a **placeholder avatar image**, with note to replace with real photo later.
+>   * Add light/dark mode toggle (top-right).
+> * **About Me**:
+>
+>   * Use objective summary from resume.
+>   * Include name, location (Calicut, Kerala), email ([sauravsvtk@gmail.com](mailto:sauravsvtk@gmail.com)), LinkedIn link.
+> * **Skills**:
+>
+>   * Show technical skills as 3D cards or animated tiles:
+>
+>     * React.js, React Native, Node.js, Flutter, SQL, Git, Playwright, Detox, Dart, Prisma, JavaScript, CSS, HTML
+>   * Include soft skills: Quick Learner, Problem-Solving, Collaboration, Leadership, Time Management.
+> * **Experience**:
+>
+>   * Show most recent and past roles in a vertical animated timeline.
+>
+>     * Arizon Systems (Full Stack Dev, Jul 2024–Present)
+>     * Sinnonteq IT Consulting (Flutter Dev, Feb 2022–Mar 2023)
+> * **Projects**:
+>
+>   * Section with **3 placeholder projects**. Each should:
+>
+>     * Be displayed in a responsive grid.
+>     * Include a placeholder image, title, short description, and “View Code” / “Live Demo” buttons.
+>     * Add tags (React Native, OCR, Prisma, etc.)
+>   * Examples:
+>
+>     * `react-native-ocr-scanner`
+>     * `enhanced-express-monitor`
+> * **Contact**:
+>
+>   * Include:
+>
+>     * Email: `sauravsvtk@gmail.com`
+>     * GitHub: [https://github.com/sauravsvtk](https://github.com/sauravsvtk)
+>     * LinkedIn: [https://linkedin.com/in/saurav-s-vtk](https://linkedin.com/in/saurav-s-vtk)
+>   * Contact form (Name, Email, Message) with animated input focus
+>   * Hover and transition effects
+> * **Resume**:
+>
+>   * Include a **Download Resume** button (downloadable PDF placeholder).
+>   * Add icon (📄) and a small tooltip “Latest Resume”
+>
+> ### 🎨 Styling & Design:
+>
+> * Premium look and feel
+> * Support **dark and light mode toggle**
+> * Glassmorphism or subtle gradients with 3D floating icons
+> * Use smooth **scroll-based animations** and **hover effects**
+> * Use clean, modern typography
+>
+> ### 📁 Output:
+>
+> * Complete React project in a single deployable structure
+> * Use placeholders where needed (image, projects, resume)
+> * All components should be modular and reusable
+> * Mobile-first responsive design
+
+---
+
+Let me know if you want a downloadable `.zip` or GitHub boilerplate generated from this!
