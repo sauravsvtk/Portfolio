@@ -1,27 +1,6 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/client/dist/$1"
-    }
-  ],
-  "outputDirectory": "client/dist",
   "buildCommand": "cd client && npm ci && npm run build",
-  "devCommand": "cd client && npm run dev",
+  "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "framework": "vite",
   "functions": {
@@ -78,6 +57,12 @@
       "source": "/about",
       "destination": "/#about",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     }
   ]
 }
