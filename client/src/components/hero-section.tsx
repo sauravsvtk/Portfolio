@@ -122,7 +122,7 @@ export function HeroSection() {
           className="mb-8 flex justify-center"
         >
           <img
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400"
+            src="/attached_assets/1703661175013_1754277741925.jpeg"
             alt="Saurav S Profile Picture"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-2xl ring-4 ring-white dark:ring-slate-700 animate-glow"
           />
