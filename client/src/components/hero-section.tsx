@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import profileImage from "@assets/1703661175013_1754277741925.jpeg";
 
 /**
  * Hero Section Component
@@ -122,7 +123,7 @@ export function HeroSection() {
           className="mb-8 flex justify-center"
         >
           <img
-            src="/attached_assets/1703661175013_1754277741925.jpeg"
+            src={profileImage}
             alt="Saurav S Profile Picture"
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-2xl ring-4 ring-white dark:ring-slate-700 animate-glow"
           />
