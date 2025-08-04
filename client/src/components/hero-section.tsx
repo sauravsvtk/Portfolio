@@ -20,6 +20,10 @@ export function HeroSection() {
   const [currentPhrase, setCurrentPhrase] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  
+  // Image loading state management
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   // Phrases to cycle through in the typing animation
   const phrases = [
@@ -57,6 +61,16 @@ export function HeroSection() {
   }, [currentPhrase, phraseIndex, isDeleting, phrases]);
 
   /**
+   * Preload the profile image for faster loading
+   */
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setImageLoaded(true);
+    img.onerror = () => setImageError(true);
+    img.src = profileImage;
+  }, []);
+
+  /**
    * Smooth scroll navigation to any page section
    * @param href - The section ID to scroll to (e.g., "#about")
    */
@@ -65,6 +79,17 @@ export function HeroSection() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  /**
+   * Handle image loading events for better UX
+   */
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
   };
 
   return (
@@ -115,18 +140,43 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        {/* Avatar */}
+        {/* Avatar with Loading State */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="mb-8 flex justify-center"
         >
-          <img
-            src={profileImage}
-            alt="Saurav S Profile Picture"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-2xl ring-4 ring-white dark:ring-slate-700 animate-glow"
-          />
+          <div className="relative w-32 h-32 md:w-40 md:h-40">
+            {/* Loading Skeleton */}
+            {!imageLoaded && !imageError && (
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 animate-pulse ring-4 ring-white dark:ring-slate-700">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+              </div>
+            )}
+            
+            {/* Profile Image */}
+            <img
+              src={profileImage}
+              alt="Saurav S Profile Picture"
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+              loading="eager"
+              decoding="async"
+              className={`w-full h-full rounded-full object-cover shadow-2xl ring-4 ring-white dark:ring-slate-700 transition-opacity duration-500 ${
+                imageLoaded ? 'opacity-100 animate-glow' : 'opacity-0'
+              }`}
+            />
+            
+            {/* Error Fallback */}
+            {imageError && (
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 flex items-center justify-center ring-4 ring-white dark:ring-slate-700 shadow-2xl">
+                <span className="text-white text-2xl md:text-3xl font-bold">
+                  {currentPhrase.includes("Saurav") ? "SS" : "S"}
+                </span>
+              </div>
+            )}
+          </div>
         </motion.div>
 
         {/* Name */}
