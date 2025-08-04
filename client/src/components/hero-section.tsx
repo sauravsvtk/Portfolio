@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { motion } from "framer-motion";
 import profileImage from "@assets/1703661175013_1754277741925.jpeg";
+import { HeroSkeleton } from "./ui/loading-skeleton";
 
 /**
  * Hero Section Component
@@ -24,6 +25,7 @@ export function HeroSection() {
   // Image loading state management
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   // Phrases to cycle through in the typing animation
   const phrases = [
@@ -61,13 +63,26 @@ export function HeroSection() {
   }, [currentPhrase, phraseIndex, isDeleting, phrases]);
 
   /**
-   * Preload the profile image for faster loading
+   * Preload the profile image for faster loading with timeout
    */
   useEffect(() => {
     const img = new Image();
-    img.onload = () => setImageLoaded(true);
-    img.onerror = () => setImageError(true);
+    img.onload = () => {
+      setImageLoaded(true);
+      setIsInitialLoad(false);
+    };
+    img.onerror = () => {
+      setImageError(true);
+      setIsInitialLoad(false);
+    };
     img.src = profileImage;
+
+    // Show content after 3 seconds regardless of image load status
+    const timeout = setTimeout(() => {
+      setIsInitialLoad(false);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   /**
@@ -91,6 +106,11 @@ export function HeroSection() {
   const handleImageError = () => {
     setImageError(true);
   };
+
+  // Show loading skeleton for initial load
+  if (isInitialLoad) {
+    return <HeroSkeleton />;
+  }
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
