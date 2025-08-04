@@ -4,16 +4,18 @@
 
 This is a premium portfolio website for Saurav S, a full-stack software engineer based in Calicut, Kerala. The application is built as a modern single-page application using React.js with a Node.js/Express backend, featuring smooth animations, dark/light theme support, and a contact form with database persistence.
 
-## Recent Changes (January 2025)
+## Recent Changes (August 2025)
 
+✓ **Vercel Serverless Migration** - Converted Express server to Vercel serverless functions for scalable deployment
 ✓ **Production-ready optimizations** - Added comprehensive loading skeletons, image optimization, and error handling
-✓ **Comprehensive documentation** - Created detailed PROJECT_DOCUMENTATION.md with tech stack explanations and architecture
+✓ **Serverless API Functions** - Created api/contact.ts and api/health.ts with proper CORS and validation
+✓ **Deployment Configuration** - Added vercel.json with optimized build settings and routing
+✓ **Comprehensive documentation** - Created detailed PROJECT_DOCUMENTATION.md, TECH_STACK.md, and VERCEL_DEPLOYMENT.md
 ✓ **Advanced loading states** - Implemented animated hero skeleton with shimmer effects and timeout handling
 ✓ **Image optimization system** - Added responsive image loading with WebP support and lazy loading capabilities
 ✓ **Code documentation** - Added detailed comments throughout codebase for maintainability
 ✓ **Performance enhancements** - Optimized animations, loading states, and user experience
-✓ **Fixed scroll indicator positioning** - Moved scroll arrow below CTA buttons with proper spacing and responsive design
-✓ **Implemented animated theme toggle** - Added smooth morphing sun/moon icons with particle effects and background transitions
+✓ **Error boundaries** - Production-ready error handling with graceful fallbacks
 
 ## User Preferences
 
